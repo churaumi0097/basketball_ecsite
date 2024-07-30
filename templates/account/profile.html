@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="profile">
+    <div class="profile-title">{{user.last_name}} {{user.first_name}}さんのプロフィール</div>
+    <div class="profile-list">
+        <div class="profile">
+            <div class="profile-text">メールアドレス</div><div class="profile-inf">{{email}}</div>
+        </div>
+        <div class="profile">
+            <div class="profile-text">名前</div><div class="profile-inf">{{last_name}} {{first_name}}</div>
+        </div>
+        <div class="profile">
+            <div class="profile-text">住所</div><div class="profile-inf">{{address}}</div>
+        </div>
+        <div class="profile">
+            <div class="profile-text">登録日</div><div class="profile-inf">{{date_joined}}</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

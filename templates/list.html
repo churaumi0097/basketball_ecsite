@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div id="list">
+    <form method="GET">
+        <div class="search">
+            <input type="text" name="query" value="{{request.GET.query}}" class="search-box" placeholder="  search">
+            <button class="search-btn">検索</button>
+        </div>
+    </form>
+</div>
+
+<div id="post">
+    {% for post in posts %}
+        <div class="post">
+            <a href="{% url 'detail' post.slug %}" class="post-url">
+                <div class="post-title">{{post.title}}</div>
+                <div class="post-img"><img src="{{ post.image.url }}"></div>
+                <div class="post-price">￥{{post.price}}</div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

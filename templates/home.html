@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="home">
+    <div class="intro-title">当サイトの特色</div>
+    {% include "_swiper.html" %}
+    <div class="intro-text">
+        <div class="text">当サイトはバスケットボール用品のみを扱うECサイトです。</div>
+        <div class="text">バスケットボールやバッシュ、バスケウェアのみでなく、作戦版やボールケースなどの商品も取り扱っています。</div>
+        <div class="text">様々な商品があるのでお客様に合った商品を是非お探しくださいませ。</div>
+    </div>
+    <a href="{% url 'list' %}"><div class="text-search">商品を探す</div></a>
+</div>
+{% endblock %}

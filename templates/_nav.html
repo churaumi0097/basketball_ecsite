@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nav">
+        <div class="nav-title">BasketBall</div>
+        <div class="nav-list">
+            <div class="nav"><a href="{% url 'home' %}">ホーム</a></div>
+            <div class="nav"><a href="{% url 'list' %}">商品一覧</a></div>
+            {% if request.user.is_authenticated %}
+            <div class="nav"><a href="{% url 'order' %}">カート</a></div>
+            <div class="nav"><a href="{% url 'profile' %}">マイページ</a></div>
+            <div class="nav"><a href="{% url 'logout' %}">ログアウト</a></div>
+            {% else %}
+            <div class="nav"><a href="{% url 'login' %}">ログイン</a></div>
+            <div class="nav"><a href="{% url 'signup' %}">ユーザー登録</a></div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

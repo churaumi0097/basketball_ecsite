@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div id="cart">
+        <div class="cart-top">Cart Item</div>
+        <div class="cart-list">
+            {% for order_item in order.posts.all %}
+            <div class="cart-item">
+                <div class="cart-img"><img src="{{order_item.post.image.url}}"></div>
+                    <div class="cart-text">
+                    <div class="cart-title">{{order_item.post.title}}</div>
+                    <div class="cart-price">値段：{{order_item.post.price}}円</div>
+                    <div class="cart-quantity">
+                        <div class="cart-quan">数量：{{order_item.quantity}}個</div>
+                        <a href="{% url 'additem' order_item.post.slug %}" class="cart-plus">+</a>
+                        <a href="{% url 'decreaseitem' order_item.post.slug %}" class="cart-plus">-</a>
+                        <a href="{% url 'removeitem' order_item.post.slug %}" class="removeitem">削除</a>
+                    </div>
+                    <div class="cart-subtotal">小計：{{order_item.sub_total}}円</div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="total-price">合計金額は{{order.total_price}}円です</div>
+        <a href="{% url 'payment' %}"><div class="enter">レジに進む</div></a>
+        <a href="{% url 'list' %}"><div class="keep-sp">買い物を続ける</div></a>
+    </div>
+{% endblock %}

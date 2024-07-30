@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="detail">
+    <div class="post-img"><img src="{{post.image.url}}"></div>
+    <div class="detail-text">
+        <div class="post-title"><div class="detext">{{post.title}}</div></div>
+        <div class="post-content">商品説明<div class="detext">{{post.content}}</div></div>
+        <div class="post-price"><div class="detext">￥{{post.price}}</div></div>
+        <div class="post-created">出品日：{{post.created}}</div>
+        <a href="{% url 'additem' post.slug %}"><button class="post-btn">カートに入れる</button></a>
+    </div>
+    <div class="back-url"><a href="{% url 'list' %}">前のページに戻る</a></div>
+</div>
+{% endblock %}

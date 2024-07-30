@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="thanks">
+    <div class="thanks">商品をご購入いただきありがとうございます</div>
+    <div class="en">Thank you for purchasing our products</div>
+    <img src="/media/image/210.png">
+    <a href="{% url 'home' %}"><div class="url">ホームに戻る</div></a>
+</div>
+{% endblock %}

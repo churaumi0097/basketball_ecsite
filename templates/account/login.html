@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block main %}
+<div id="login">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="login-title">ログイン</div>
+        <div class="login-list">
+            <div class="login-form"><div>メールアドレス</div>{% render_field form.username class="form-control" %}</div>
+            <div class="login-form"><div>パスワード</div>{% render_field form.password class="form-control" %}</div>
+        </div>
+        <button class="login-btn">ログイン</button>
+        <div class="signup-url"><a href="{% url 'signup' %}">ユーザー登録はこちらから</a></div>
+    </form>
+</div>
+{% endblock %}

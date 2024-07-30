@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="payment">
+    <div class="deliver">発送先</div>
+    <div class="user-data">
+        <div class="user-title">ユーザー情報</div>
+        <div class="username">
+            <div class="user-firstname">{{user_data.last_name}}</div>
+            <div class="user-lastname">{{user_data.first_name}}</div>
+        </div>
+        <div class="user-email">{{user_data.email}}</div>
+        <div class="user-address">{{user_data.address}}</div>      
+    </div>
+    <div class="order">
+        <div class="comfirm">注文内容</div>
+    <div class="pay">合計金額</div>
+    <div class="payamount">{{order.total_price}}円</div>
+    </div>
+    <a href="{% url 'thanks' %}"><div class="thanks-btn">注文を確定する</div></a>
+</div>
+{% endblock %}
